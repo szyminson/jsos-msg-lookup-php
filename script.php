@@ -67,7 +67,7 @@ if($unread)
     //POST action URL
     $post_action_url = 'https://oauth.pwr.edu.pl/oauth/authenticate'.'?0-1.IFormSubmitListener-authenticateForm&'.http_build_query($post_tokens);
  
-    //Login into JSOS
+    //Login to JSOS
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $post_action_url);
     curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -83,7 +83,7 @@ if($unread)
     
     curl_close($ch);
 
-    //Go to the JSOS's inbox
+    //Go to the inbox
     $ch = curl_init('https://jsos.pwr.edu.pl/index.php/student/wiadomosci');
     curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie);
     curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie);
