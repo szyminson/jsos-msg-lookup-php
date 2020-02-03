@@ -10,4 +10,4 @@ Read JSOS messages straight from your email client!
 1. `$ cp config.example.php config.php`
 2. Edit `config.php` to match your credentials.
 3. `$ php script.php`
-4. Check your https://student.pwr.edu.pl inbox :)
+4. Check your [https://student.pwr.edu.pl](inbox) :)
