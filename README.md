@@ -7,9 +7,18 @@ Read JSOS messages straight from your email client!
 * `php-curl`
 * `php-imap`
 ## Usage
+### Manually
 1. `$ cp config.example.php config.php`
 2. Edit `config.php` to match your credentials.
 3. `$ php script.php`
 4. Check your [inbox](https://student.pwr.edu.pl) :)
+### Docker
+This docker container will run the script every minute automatically. All you have to do is to start it with this command:
+```
+docker run -d -e "jsosu=pwrXXXXXX" -e "jsosp=jsospass" -e "smailu=XXXXXX@student.pwr.edu.pl" -e "smailp=smailpass" --rm --name jml szyminson/jsos-msg-lookup:v1.1.0
+```
+You can optionally build the container on your own using this repo's Dockerfile.
+#### Note
+If you prefer to store your credentials in `config.php` instead of using env variables - you can simply mount your config file to the container under `/var/jml/config.php` path. 
 ## Additional notes
-This is the simplest version of the script. I'm currently working on a new, better one. It will use Composer to manage dependencies and I'm going to create a Dockerfile so you will be able to run it in a container with automated execution (cron job) of the script every minute just to make sure you won't miss any JSOS message. Everything in one command. Stay tuned!
+This is the simplest version of the script. I'm currently working on a new, better one. It will be an object oriented Composer project. Stay tuned!
