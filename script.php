@@ -13,11 +13,23 @@ require './lib/PHPMailer/SMTP.php';
 // https://simplehtmldom.sourceforge.io/
 require './lib/simpleHTMLdom/simple_html_dom.php';
 
-//Include config.php
-require './config.php';
+//Include config.php if exists, if it doesn't exist try to get env variables with credentials or exit
+if(file_exists('./config.php')) include './config.php';
+else
+{
+    $jsos_user = getenv('jsosu');
+    $jsos_pass = getenv('jsosp');
+    $smail_user = getenv('smailu');
+    $smail_pass = getenv('smailp');
+    $cookie = './curl-session';
+}
+if(!($jsos_user and $jsos_pass and $smail_user and $smail_pass)) exit('No credentials given.'."\n\n");
 
 $jsos_user = urlencode($jsos_user);
 $jsos_pass = urlencode($jsos_pass);
+
+//Remove previous cookies
+if(file_exists($cookie)) @unlink($cookie);
 
 //Check for unseen emails with Edukacja.CL notification subject via IMAP
 $mb = imap_open('{student.pwr.edu.pl:143}', $smail_user, $smail_pass);
@@ -164,5 +176,5 @@ if($unread)
     //Close the IMAP stream
     imap_close($mb);
 }
-else echo 'No new messages!';
+else echo 'No new messages!'."\n\n";
 
