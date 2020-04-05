@@ -22,5 +22,3 @@ docker run -d -e "jsosu=pwrXXXXXX" -e "jsosp=jsospass" -e "smailu=XXXXXX@student
 You can optionally build the container on your own using this repo's Dockerfile.
 #### Note
 If you prefer to store your credentials in `config.php` instead of using env variables - you can simply mount your config file to the container under `/var/jml/config.php` path. 
-## Additional notes
-This is the simplest version of the script. I'm currently working on a new, better one. It will be an object oriented Composer project. Stay tuned!
