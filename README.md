@@ -1,5 +1,7 @@
 # jsos-msg-lookup
 Read JSOS messages straight from your email client!
+## Disclaimer!
+This repository is no longer maintained and supported! I've decided to create a better, more secure version of this app in Python. It's strongly recommended to use the new one: https://github.com/szyminson/jsos-msg-lookup
 ## Dependencies
 * https://github.com/PHPMailer/PHPMailer
 * https://simplehtmldom.sourceforge.io/
